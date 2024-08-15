@@ -63,16 +63,11 @@
     border: none;
   }
 
-  .bgHover:hover {
-    @apply bg-pink-500;
-    transition: all 0.5s;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
+  .hero {
+    height: calc(100vh - 200px);
   }
 
-  .selected {
-    @apply bg-pink-500
-    color: white;
+  .login-screen {
+    height: calc(100vh - 50px);
   }
 }

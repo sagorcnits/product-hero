@@ -46,9 +46,9 @@ const Navbar = () => {
                   className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "active" : ""
                   }
-                  to="/donation-requests"
+                  to="/create-product"
                 >
-                  donation requests
+                  Create Product
                 </NavLink>
               </li>
               <li>
@@ -56,9 +56,9 @@ const Navbar = () => {
                   className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "active" : ""
                   }
-                  to="/blog"
+                  to="/About Us"
                 >
-                  blog
+                  About Us
                 </NavLink>
               </li>
               <li>
@@ -66,9 +66,9 @@ const Navbar = () => {
                   className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "active" : ""
                   }
-                  to="/fundings"
+                  to="/contact"
                 >
-                  fundings
+                  Contact
                 </NavLink>
               </li>
             </ul>
