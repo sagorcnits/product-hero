@@ -2,9 +2,9 @@ const Categorization = () => {
   return (
     <div>
       <h1 className="font-semibold">Choose your Category</h1>
-      <div className="flex justify-between items-center  mt-4">
-        <div className="shadow border flex justify-between items-center gap-6 rounded-md p-3">
-          <div className="flex items-center gap-3 *:cursor-pointer">
+      <div className="flex flex-col md:flex-row justify-between items-center  mt-4">
+        <div className="shadow border flex flex-col md:flex-row justify-between items-center gap-2 md:gap-6 rounded-md p-3">
+          <div className="flex items-center gap-2 *:cursor-pointer">
             <div>
               <label className="font-semibold"> Brand : </label>
               <select className="border p-2 rounded-md cursor-pointer">
@@ -29,9 +29,9 @@ const Categorization = () => {
           </div>
           <button className="button py-[9px] px-3">Find Now</button>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 mt-6 md:mt-0">
           <label className="font-semibold">Sort By : </label>
-          <div className="shadow  rounded-md">
+          <div className="shadow  rounded-md overflow-hidden border">
             <select className="cursor-pointer p-2">
               <option value="Price Low to High">Price Low to High</option>
               <option value="Price High to Low">Price High to Low</option>

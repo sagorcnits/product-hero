@@ -1,8 +1,33 @@
+import { useState } from "react";
 import Banner from "../../components/Banner";
 import Card from "../../components/Card";
 import Categorization from "../../components/Categorization";
 
 const Home = () => {
+  // pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemPerPage, setItemPerPage] = useState(5);
+  const numberPages = Math.ceil(50 / itemPerPage);
+  const totalbtn = [...Array(numberPages).keys()];
+
+  const handleChangeItemPage = (e) => {
+    const val = parseInt(e.target.value);
+    setItemPerPage(val);
+    setCurrentPage(0);
+  };
+
+  const previousPerPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const nextPerPage = () => {
+    if (currentPage < totalbtn.length) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
   return (
     <>
       <div className="mt-5">
@@ -10,10 +35,51 @@ const Home = () => {
       </div>
       <section className="mt-10">
         <Categorization></Categorization>
-        <div className="grid grid-cols-4 gap-10 items-center mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 gap-6 items-center mt-10">
           {[1, 2, 3, 4, 5, 6, 7, 8].map((item, id) => (
             <Card key={id}></Card>
           ))}
+        </div>
+        <div className="flex gap-2 space-x-1 dark:text-gray-800 mt-10 pb-10 ml-2">
+          <button
+            onClick={previousPerPage}
+            className="inline-flex items-center justify-center px-2 h-8 text-sm font-semibold border rounded shadow-md hover:bg-pink-500 duration-500 hover:text-white"
+          >
+            Previous
+          </button>
+          <div className="flex gap-2">
+            {totalbtn.map((item, id) => {
+              return (
+                <button
+                  onClick={() => setCurrentPage(item + 1)}
+                  key={id}
+                  type="button"
+                  title="Page 1"
+                  className={`inline-flex items-center justify-center w-8 h-8 text-sm font-semibold border rounded shadow-md ${
+                    currentPage == item + 1 ? "selected" : ""
+                  }`}
+                >
+                  {item + 1}
+                </button>
+              );
+            })}
+          </div>
+          <button
+            onClick={nextPerPage}
+            className="inline-flex items-center justify-center px-2 h-8 text-sm font-semibold border rounded shadow-md hover:bg-pink-500 duration-500 hover:text-white"
+          >
+            Next
+          </button>
+          <select
+            defaultValue={itemPerPage}
+            onChange={handleChangeItemPage}
+            className="cursor-pointer text-sm font-semibold border rounded"
+          >
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+          </select>
         </div>
       </section>
     </>
