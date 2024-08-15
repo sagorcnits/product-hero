@@ -7,10 +7,10 @@ const Footer = () => {
         <div className=" flex items-center justify-between flex-col gap-10 py-10 mx-auto space-y-8 md:flex-row lg:space-y-0 ">
           <div>
             <a className="text-2xl md:text-3xl  font-bold ">
-              Blood<span className="text-[#DF1E26]">Unity</span>
+              Product<span className="text-[#DF1E26]">Hero</span>
             </a>
             <p className="pt-3 text-[#D7DBDD]">
-              SKT Industries Ltd. <br />
+              Product Industries Ltd. <br />
               Providing reliable treatment since 2004
             </p>
           </div>
@@ -64,8 +64,8 @@ const Footer = () => {
           <aside className="items-center grid-flow-col">
             <p>
               ©2024{" "}
-              <a className=" font-bold ">
-                Blood<span className="text-[#DF1E26]">Unity</span>
+              <a className=" font-bold">
+                Product<span className="text-[#DF1E26]">Hero</span>
               </a>{" "}
               Company . All rights reserved.
             </p>

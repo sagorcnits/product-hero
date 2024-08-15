@@ -13,7 +13,7 @@ const Home = () => {
   const handleChangeItemPage = (e) => {
     const val = parseInt(e.target.value);
     setItemPerPage(val);
-    setCurrentPage(0);
+    setCurrentPage(1);
   };
 
   const previousPerPage = () => {
@@ -40,7 +40,7 @@ const Home = () => {
             <Card key={id}></Card>
           ))}
         </div>
-        <div className="flex gap-2 space-x-1 dark:text-gray-800 mt-10 pb-10 ml-2">
+        <div className="flex overflow-auto gap-2 space-x-1 dark:text-gray-800 mt-10 pb-10 ml-2">
           <button
             onClick={previousPerPage}
             className="inline-flex items-center justify-center px-2 h-8 text-sm font-semibold border rounded shadow-md hover:bg-pink-500 duration-500 hover:text-white"

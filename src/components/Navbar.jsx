@@ -56,7 +56,7 @@ const Navbar = () => {
                   className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "active" : ""
                   }
-                  to="/About Us"
+                  to="/about"
                 >
                   About Us
                 </NavLink>
@@ -118,7 +118,7 @@ const Navbar = () => {
       >
         <div className="flex justify-between border-b border-dashed py-6 px-2">
           <a className="text-2xl md:text-3xl  font-bold text-white">
-            Blood<span className="text-bgColor">Unity</span>
+            Product<span className="text-bgColor">Hero</span>
           </a>
           <IoClose
             onClick={handleSideBar}
@@ -145,7 +145,7 @@ const Navbar = () => {
           <li>
             <NavLink
               onClick={handleSideBar}
-              to="/donation-requests"
+              to="/create-product"
               className={({ isActive, isPending }) =>
                 isPending
                   ? "pending"
@@ -154,14 +154,14 @@ const Navbar = () => {
                   : "nav-bar"
               }
             >
-              donation requests
+              Create Product
             </NavLink>
           </li>
 
           <li>
             <NavLink
               onClick={handleSideBar}
-              to="/blog"
+              to="/about"
               className={({ isActive, isPending }) =>
                 isPending
                   ? "pending"
@@ -170,13 +170,13 @@ const Navbar = () => {
                   : "nav-bar"
               }
             >
-              Blog
+              About
             </NavLink>
           </li>
           <li>
             <NavLink
               onClick={handleSideBar}
-              to="/fundings"
+              to="/contact"
               className={({ isActive, isPending }) =>
                 isPending
                   ? "pending"
@@ -185,7 +185,7 @@ const Navbar = () => {
                   : "nav-bar"
               }
             >
-              Funding
+              Contact
             </NavLink>
           </li>
         </ul>
