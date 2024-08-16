@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Banner from "../../components/Banner";
 import Card from "../../components/Card";
 import Categorization from "../../components/Categorization";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import useProducts from "../../hooks/useProducts";
 
 const Home = () => {
+  const axiosPublic = useAxiosPublic();
+  const productData = useProducts();
+  const [data, setData] = useState([]);
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [itemPerPage, setItemPerPage] = useState(5);
@@ -28,13 +33,52 @@ const Home = () => {
     }
   };
 
+  useEffect(() => {
+    axiosPublic
+      .get("/products")
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  const handleSearchData = (e) => {
+    e.preventDefault();
+    const searchValue = e.target.search.value;
+    axiosPublic
+      .get(`/products/${searchValue}`)
+      .then((res) => {
+        return setData(res.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  const handleCategory = (data) => {
+    const brand = data.brand;
+    const category = data.category;
+    const price = data.price;
+    console.log(brand, category, price);
+    axiosPublic
+      .get(`/products?brand=${brand}&category=${category}&price=${price}`)
+      .then((res) => {
+        return setData(res.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   return (
     <>
       <div className="mt-5">
-        <Banner></Banner>
+        <Banner handleSearchData={handleSearchData}></Banner>
       </div>
       <section className="mt-10">
-        <Categorization></Categorization>
+        <Categorization handleCategory={handleCategory}></Categorization>
         <div className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 gap-6 items-center mt-10">
           {[1, 2, 3, 4, 5, 6, 7, 8].map((item, id) => (
             <Card key={id}></Card>
@@ -75,7 +119,7 @@ const Home = () => {
             onChange={handleChangeItemPage}
             className="cursor-pointer text-sm font-semibold border rounded"
           >
-            <option value="5">5</option>
+            <option value="8">8</option>
             <option value="10">10</option>
             <option value="15">15</option>
             <option value="20">20</option>

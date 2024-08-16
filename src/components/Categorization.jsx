@@ -1,33 +1,46 @@
-const Categorization = () => {
+import { useForm } from "react-hook-form";
+
+const Categorization = ({handleCategory}) => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+
   return (
     <div>
       <h1 className="font-semibold">Choose your Category</h1>
       <div className="flex flex-col md:flex-row justify-between items-center  mt-4">
         <div className="shadow border flex flex-col md:flex-row justify-between items-center gap-2 md:gap-6 rounded-md p-3">
-          <div className="flex items-center gap-2 *:cursor-pointer">
-            <div>
-              <label className="font-semibold"> Brand : </label>
-              <select className="border p-2 rounded-md cursor-pointer">
-                <option value="nike">nike</option>
-                <option value="walton">walton</option>
-              </select>
+          <form>
+            <div className="flex items-center gap-2 *:cursor-pointer">
+              <div>
+                <label className="font-semibold"> Brand : </label>
+                <select {...register("brand")} className="border p-2 rounded-md cursor-pointer">
+                  <option value="nike">nike</option>
+                  <option value="walton">walton</option>
+                </select>
+              </div>
+              <div>
+                <label className="font-semibold"> Category : </label>
+                <select {...register("category")} className="border p-2 rounded-md cursor-pointer">
+                  <option value="clothing">clothing</option>
+                  <option value="electronics">electronics</option>
+                </select>
+              </div>
+              <div>
+                <label className="font-semibold"> Price : </label>
+                <select {...register("price")} className="border p-2 rounded-md cursor-pointer">
+                  <option value="100-200">$100-$200</option>
+                  <option value="200-300">$200-$300</option>
+                </select>
+              </div>
+            <button onClick={handleSubmit(handleCategory)} className="button py-[9px] px-3">Find Now</button>
             </div>
-            <div>
-              <label className="font-semibold"> Category : </label>
-              <select className="border p-2 rounded-md cursor-pointer">
-                <option value="clothing">clothing</option>
-                <option value="electronics">electronics</option>
-              </select>
-            </div>
-            <div>
-              <label className="font-semibold"> Price : </label>
-              <select className="border p-2 rounded-md cursor-pointer">
-                <option value="100-200">$100-$200</option>
-                <option value="200-300">$200-$300</option>
-              </select>
-            </div>
-          </div>
-          <button className="button py-[9px] px-3">Find Now</button>
+          </form>
         </div>
         <div className="flex items-center gap-3 mt-6 md:mt-0">
           <label className="font-semibold">Sort By : </label>
