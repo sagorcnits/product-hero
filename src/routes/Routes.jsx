@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import PrivateRoute from "../components/PrivateRoute";
 import Root from "../layout/Root";
 import About from "../pages/about/About";
 import Contact from "../pages/contact/Contact";
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element:<PrivateRoute><Home></Home></PrivateRoute>,
       },
       {
         path: "/login",
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/create-product",
-        element: <CreateProduct></CreateProduct>,
+        element: <PrivateRoute><CreateProduct></CreateProduct></PrivateRoute>,
       },
       {
         path: "/about",

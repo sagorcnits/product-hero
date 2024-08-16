@@ -1,11 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "./AuthProvider";
 
 const Navbar = () => {
-  const user = false;
+  const { user, logOut } = useContext(AuthContext);
   const [isActive, setActive] = useState(true);
+  const navigate = useNavigate();
   const navRef = useRef();
   const handleSideBar = () => {
     setActive(!isActive);
@@ -14,6 +16,16 @@ const Navbar = () => {
     } else {
       navRef.current.style.left = "-300px";
     }
+  };
+
+  const handleLogOutUser = () => {
+    logOut()
+      .then((res) => {
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
 
   return (
@@ -51,26 +63,30 @@ const Navbar = () => {
                   Create Product
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "active" : ""
-                  }
-                  to="/about"
-                >
-                  About Us
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "active" : ""
-                  }
-                  to="/contact"
-                >
-                  Contact
-                </NavLink>
-              </li>
+              {user && (
+                <>
+                  <li>
+                    <NavLink
+                      className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "active" : ""
+                      }
+                      to="/about"
+                    >
+                      About Us
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "active" : ""
+                      }
+                      to="/contact"
+                    >
+                      Contact
+                    </NavLink>
+                  </li>
+                </>
+              )}
             </ul>
 
             {user ? (
@@ -81,7 +97,7 @@ const Navbar = () => {
                   className="btn btn-ghost btn-circle avatar"
                 >
                   <div className="w-16 rounded-full">
-                    <img alt="" src="" />
+                    <img alt="" src={user?.photoURL} />
                   </div>
                 </div>
                 <ul
@@ -93,7 +109,7 @@ const Navbar = () => {
                   </li>
 
                   <li>
-                    <Link>Logout</Link>
+                    <Link onClick={handleLogOutUser}>Logout</Link>
                   </li>
                 </ul>
               </div>
