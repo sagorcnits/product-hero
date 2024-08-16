@@ -34,6 +34,7 @@ const Categorization = ({handleCategory}) => {
               <div>
                 <label className="font-semibold"> Price : </label>
                 <select {...register("price")} className="border p-2 rounded-md cursor-pointer">
+                  <option value="1-100">$1-$100</option>
                   <option value="100-200">$100-$200</option>
                   <option value="200-300">$200-$300</option>
                 </select>
