@@ -72,16 +72,29 @@ const Home = () => {
       });
   };
 
+  const handleSorting = (data) => {
+    axiosPublic
+    .get(`/products/${data}`)
+    .then((res) => {
+      return setData(res.data);
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
+  
+  }
+  console.log(data)
+
   return (
     <>
       <div className="mt-5">
         <Banner handleSearchData={handleSearchData}></Banner>
       </div>
       <section className="mt-10">
-        <Categorization handleCategory={handleCategory}></Categorization>
+        <Categorization handleCategory={handleCategory} handleSorting={handleSorting}></Categorization>
         <div className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 gap-6 items-center mt-10">
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((item, id) => (
-            <Card key={id}></Card>
+          {data.map((product, id) => (
+            <Card key={id} product={product}></Card>
           ))}
         </div>
         <div className="flex overflow-auto gap-2 space-x-1 dark:text-gray-800 mt-10 pb-10 ml-2">

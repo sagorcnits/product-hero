@@ -1,3 +1,4 @@
+import moment from "moment";
 import React from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
@@ -27,6 +28,7 @@ const CreateProduct = () => {
       category,
       photo_url,
       description,
+      date: moment().format('l')
     };
 
     axiosPublic
@@ -101,8 +103,8 @@ const CreateProduct = () => {
                   {...register("category")}
                   className="w-full  px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 cursor-pointer"
                 >
-                  <option value="electronics">electronics</option>
-                  <option value="clothing">clothing</option>
+                  <option value="electronics">Electronics</option>
+                  <option value="clothing">Clothing</option>
                 </select>
               </div>
             </div>
