@@ -6,12 +6,14 @@ import Contact from "../pages/contact/Contact";
 import CreateProduct from "../pages/create-product/CreateProduct";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
+import NotFound from "../pages/notFound/NotFound";
 import Register from "../pages/register/Register";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<NotFound></NotFound>,
     children: [
       {
         path: "/",
