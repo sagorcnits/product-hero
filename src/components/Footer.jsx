@@ -14,7 +14,7 @@ const Footer = () => {
               Providing reliable treatment since 2004
             </p>
           </div>
-          <div className="grid md:grid-cols-2  lg:grid-cols-4 gap-10 font-open-sans md:w-[60%] *:pl-8">
+          <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-10 font-open-sans md:w-[60%] md:*:pl-8">
             <div className="space-y-3">
               <h3 className="text-[20px]">Company</h3>
               <ul className="space-y-1 *:text-[#D7DBDD] ">
@@ -43,16 +43,16 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <form className="pl-4 font-open-sans">
-              <h6 className="text-[20px]">Subscribe Now</h6>
-              <fieldset className="form-control w-80">
-                <div className="join mt-10">
+            <form className="md:pl-4 font-open-sans">
+              <h4 className="text-[20px]">Subscribe Now</h4>
+              <fieldset className="form-control ">
+                <div className="join mt-10 ">
                   <input
                     type="email"
                     placeholder="Enter Your Email"
-                    className="input input-bordered join-item text-black"
+                    className="w-[170px] input-bordered join-item text-black px-2"
                   />
-                  <button className="button px-4 join-item">Subscribe</button>
+                  <button className="button px-2 md:px-4 join-item">Subscribe</button>
                 </div>
               </fieldset>
             </form>

@@ -13,28 +13,28 @@ const Categorization = ({ handleCategory, handleSorting }) => {
     <div>
       <h1 className="font-semibold">Choose your Category</h1>
       <div className="flex flex-col md:flex-row justify-between items-center  mt-4">
-        <div className="shadow border flex flex-col md:flex-row justify-between items-center gap-2 md:gap-6 rounded-md p-3">
-          <form>
-            <div className="flex items-center gap-2 *:cursor-pointer">
+        <div className="w-[50%] shadow border flex flex-col md:flex-row justify-between items-center gap-2 md:gap-6 rounded-md p-3">
+          <form >
+            <div className="grid grid-cols-2 md:grid-cols-4 items-center gap-2 *:cursor-pointer">
               <div>
                 <label className="font-semibold"> Brand : </label>
                 <select
                   {...register("brand")}
-                  className="border p-2 rounded-md cursor-pointer"
+                  className="border p-2 rounded-md cursor-pointer w-full"
                 >
-                  <option value="amazon">amazon</option>
                   <option value="nike">nike</option>
                   <option value="walton">walton</option>
                   <option value="samsung">samsung</option>
                   <option value="apple">apple</option>
                   <option value="apple">otobi</option>
+                  <option value="amazon">amazon</option>
                 </select>
               </div>
               <div>
                 <label className="font-semibold"> Category : </label>
                 <select
                   {...register("category")}
-                  className="border p-2 rounded-md cursor-pointer"
+                  className="border p-2 rounded-md cursor-pointer w-full"
                 >
                   <option value="electronics">Electronics</option>
                   <option value="clothing">Clothing</option>
@@ -47,7 +47,7 @@ const Categorization = ({ handleCategory, handleSorting }) => {
                 <label className="font-semibold"> Price : </label>
                 <select
                   {...register("price")}
-                  className="border p-2 rounded-md cursor-pointer"
+                  className="border p-2 rounded-md cursor-pointer w-full"
                 >
                   <option value="1-100">$1-$100</option>
                   <option value="100-300">$100-$300</option>
@@ -61,7 +61,7 @@ const Categorization = ({ handleCategory, handleSorting }) => {
               </div>
               <button
                 onClick={handleSubmit(handleCategory)}
-                className="button py-[9px] px-3"
+                className="button py-[9px] px-3 w-full mt-5"
               >
                 Find Now
               </button>

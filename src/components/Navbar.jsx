@@ -43,26 +43,6 @@ const Navbar = () => {
         <div className="flex-1 justify-end gap-16 *:flex  *:items-center *:gap-10">
           <div>
             <ul className="hidden items-center gap-6 *:text-paragraph font-semibold lg:flex">
-              <li>
-                <NavLink
-                  className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "active" : ""
-                  }
-                  to="/"
-                >
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "active" : ""
-                  }
-                  to="/create-product"
-                >
-                  Create Product
-                </NavLink>
-              </li>
               {user && (
                 <>
                   <li>
@@ -70,9 +50,9 @@ const Navbar = () => {
                       className={({ isActive, isPending }) =>
                         isPending ? "pending" : isActive ? "active" : ""
                       }
-                      to="/about"
+                      to="/"
                     >
-                      About Us
+                      Home
                     </NavLink>
                   </li>
                   <li>
@@ -80,13 +60,33 @@ const Navbar = () => {
                       className={({ isActive, isPending }) =>
                         isPending ? "pending" : isActive ? "active" : ""
                       }
-                      to="/contact"
+                      to="/create-product"
                     >
-                      Contact
+                      Create Product
                     </NavLink>
                   </li>
                 </>
               )}
+              <li>
+                <NavLink
+                  className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "active" : ""
+                  }
+                  to="/about"
+                >
+                  About Us
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "active" : ""
+                  }
+                  to="/contact"
+                >
+                  Contact
+                </NavLink>
+              </li>
             </ul>
 
             {user ? (

@@ -8,7 +8,7 @@ const Card = ({ product }) => {
     photo_url,
     description,
     date,
-    ratings,
+    rating,
   } = product;
 
   return (
@@ -66,7 +66,7 @@ const Card = ({ product }) => {
                 className="mask mask-star-2 bg-orange-500"
               />
             </div>
-            <p className="text-[11px]">({ratings})</p>
+            <p className="text-[11px]">({rating})</p>
           </div>
         </div>
         <div className="flex items-center justify-between pt-2 ">

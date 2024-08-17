@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import Banner from "../../components/Banner";
 import Card from "../../components/Card";
 import Categorization from "../../components/Categorization";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useProducts from "../../hooks/useProducts";
-
 const Home = () => {
   const axiosPublic = useAxiosPublic();
   const productData = useProducts();
@@ -42,7 +42,7 @@ const Home = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [currentPage,itemPerPage]);
+  }, [currentPage, itemPerPage]);
 
   const handleSearchData = (e) => {
     e.preventDefault();
@@ -87,6 +87,9 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Product hero - Home</title>
+      </Helmet>
       <div className="mt-5">
         <Banner handleSearchData={handleSearchData}></Banner>
       </div>
@@ -104,47 +107,49 @@ const Home = () => {
         ) : (
           <h1 className="text-center text-4xl mt-10 font-semibold">No Data</h1>
         )}
-        <div className="flex overflow-auto gap-2 space-x-1 dark:text-gray-800 mt-10 pb-10 ml-2">
-          <button
-            onClick={previousPerPage}
-            className="inline-flex items-center justify-center px-2 h-8 text-sm font-semibold border rounded shadow-md hover:bg-pink-500 duration-500 hover:text-white"
-          >
-            Previous
-          </button>
-          <div className="flex gap-2">
-            {totalbtn.map((item, id) => {
-              return (
-                <button
-                  onClick={() => setCurrentPage(item + 1)}
-                  key={id}
-                  type="button"
-                  title="Page 1"
-                  className={`inline-flex items-center justify-center w-8 h-8 text-sm font-semibold border rounded shadow-md ${
-                    currentPage == item + 1 ? "selected" : ""
-                  }`}
-                >
-                  {item + 1}
-                </button>
-              );
-            })}
+        {data.length > 0 && (
+          <div className="flex overflow-auto gap-2 space-x-1 dark:text-gray-800 mt-10 pb-10 ml-2">
+            <button
+              onClick={previousPerPage}
+              className="inline-flex items-center justify-center px-2 h-8 text-sm font-semibold border rounded shadow-md hover:bg-pink-500 duration-500 hover:text-white"
+            >
+              Previous
+            </button>
+            <div className="flex gap-2">
+              {totalbtn.map((item, id) => {
+                return (
+                  <button
+                    onClick={() => setCurrentPage(item + 1)}
+                    key={id}
+                    type="button"
+                    title="Page 1"
+                    className={`inline-flex items-center justify-center w-8 h-8 text-sm font-semibold border rounded shadow-md ${
+                      currentPage == item + 1 ? "selected" : ""
+                    }`}
+                  >
+                    {item + 1}
+                  </button>
+                );
+              })}
+            </div>
+            <button
+              onClick={nextPerPage}
+              className="inline-flex items-center justify-center px-2 h-8 text-sm font-semibold border rounded shadow-md hover:bg-pink-500 duration-500 hover:text-white"
+            >
+              Next
+            </button>
+            <select
+              defaultValue={itemPerPage}
+              onChange={handleChangeItemPage}
+              className="cursor-pointer text-sm font-semibold border rounded"
+            >
+              <option value="8">8</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+            </select>
           </div>
-          <button
-            onClick={nextPerPage}
-            className="inline-flex items-center justify-center px-2 h-8 text-sm font-semibold border rounded shadow-md hover:bg-pink-500 duration-500 hover:text-white"
-          >
-            Next
-          </button>
-          <select
-            defaultValue={itemPerPage}
-            onChange={handleChangeItemPage}
-            className="cursor-pointer text-sm font-semibold border rounded"
-          >
-            <option value="8">8</option>
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
-          </select>
-        </div>
+        )}
       </section>
     </>
   );
