@@ -50,7 +50,7 @@ const Categorization = ({ handleCategory, handleSorting }) => {
                   {...register("price")}
                   className="border p-2 rounded-md cursor-pointer w-full"
                 >
-                  <option value="all">all</option>
+                  
                   <option value="1-100">$1-$100</option>
                   <option value="100-300">$100-$300</option>
                   <option value="300-600">$300-$600</option>
