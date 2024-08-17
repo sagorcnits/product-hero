@@ -12,7 +12,7 @@ const Home = () => {
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [itemPerPage, setItemPerPage] = useState(5);
-  const numberPages = Math.ceil(50 / itemPerPage);
+  const numberPages = Math.ceil(productData?.length / itemPerPage);
   const totalbtn = [...Array(numberPages).keys()];
 
   const handleChangeItemPage = (e) => {
@@ -35,7 +35,7 @@ const Home = () => {
 
   useEffect(() => {
     axiosPublic
-      .get("/products")
+      .get("/products?size=8")
       .then((res) => {
         setData(res.data);
       })
@@ -74,16 +74,16 @@ const Home = () => {
 
   const handleSorting = (data) => {
     axiosPublic
-    .get(`/products/${data}`)
-    .then((res) => {
-      return setData(res.data);
-    })
-    .catch((error) => {
-      console.log(error.message);
-    });
-  
-  }
-  console.log(data)
+      .get(`/products/${data}`)
+      .then((res) => {
+        return setData(res.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  // console.log(productData);
 
   return (
     <>
@@ -91,12 +91,19 @@ const Home = () => {
         <Banner handleSearchData={handleSearchData}></Banner>
       </div>
       <section className="mt-10">
-        <Categorization handleCategory={handleCategory} handleSorting={handleSorting}></Categorization>
-        <div className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 gap-6 items-center mt-10">
-          {data.map((product, id) => (
-            <Card key={id} product={product}></Card>
-          ))}
-        </div>
+        <Categorization
+          handleCategory={handleCategory}
+          handleSorting={handleSorting}
+        ></Categorization>
+        {data.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 gap-6 items-center mt-10">
+            {data.map((product, id) => (
+              <Card key={id} product={product}></Card>
+            ))}
+          </div>
+        ) : (
+          <h1 className="text-center text-4xl mt-10 font-semibold">No Data</h1>
+        )}
         <div className="flex overflow-auto gap-2 space-x-1 dark:text-gray-800 mt-10 pb-10 ml-2">
           <button
             onClick={previousPerPage}

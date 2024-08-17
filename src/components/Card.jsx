@@ -16,7 +16,7 @@ const Card = ({ product }) => {
       <figure className="rounded-md relative h-[150px] overflow-hidden">
         <img
           className="w-full h-full"
-          src="https://img.freepik.com/free-photo/rendering-smart-home-device_23-2151039302.jpg?t=st=1723719296~exp=1723722896~hmac=2fda09a5de19b7a48b46c68e650d8f49c22c4a1deba1973a74103f4adf0a3c79&w=740"
+          src={photo_url}
           alt=""
         />
         {/* <div className="absolute bg-green-500 px-[4px] py-[2px] rounded-md top-0 left-0 text-white font-semibold">

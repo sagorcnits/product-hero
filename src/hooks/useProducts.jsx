@@ -3,7 +3,7 @@ import useAxiosPublic from "./useAxiosPublic";
 
 const useProducts = () => {
   const axiosPublic = useAxiosPublic();
-  const [productData, setProductData] = useState();
+  const [productData, setProductData] = useState([]);
 
   useEffect(() => {
     axiosPublic

@@ -22,8 +22,12 @@ const Categorization = ({ handleCategory, handleSorting }) => {
                   {...register("brand")}
                   className="border p-2 rounded-md cursor-pointer"
                 >
+                  <option value="amazon">amazon</option>
                   <option value="nike">nike</option>
                   <option value="walton">walton</option>
+                  <option value="samsung">samsung</option>
+                  <option value="apple">apple</option>
+                  <option value="apple">otobi</option>
                 </select>
               </div>
               <div>
@@ -32,8 +36,11 @@ const Categorization = ({ handleCategory, handleSorting }) => {
                   {...register("category")}
                   className="border p-2 rounded-md cursor-pointer"
                 >
-                  <option value="clothing">clothing</option>
-                  <option value="electronics">electronics</option>
+                  <option value="electronics">Electronics</option>
+                  <option value="clothing">Clothing</option>
+                  <option value="Kitchen Appliances">Kitchen Appliances</option>
+                  <option value="Furniture">Furniture</option>
+                  <option value="Health & Fitness">Health & Fitness</option>
                 </select>
               </div>
               <div>
@@ -43,8 +50,13 @@ const Categorization = ({ handleCategory, handleSorting }) => {
                   className="border p-2 rounded-md cursor-pointer"
                 >
                   <option value="1-100">$1-$100</option>
-                  <option value="100-200">$100-$200</option>
-                  <option value="200-300">$200-$300</option>
+                  <option value="100-300">$100-$300</option>
+                  <option value="300-600">$300-$600</option>
+                  <option value="600-1000">$600-$1000</option>
+                  <option value="1000-1500">$1000-$1500</option>
+                  <option value="1500-2000">$1500-$2000</option>
+                  <option value="2000-5000">$2000-$5000</option>
+                  <option value="5000-10000">$5000-$10000</option>
                 </select>
               </div>
               <button

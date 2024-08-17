@@ -28,7 +28,7 @@ const CreateProduct = () => {
       category,
       photo_url,
       description,
-      date: moment().format('l')
+      date: moment().format("l"),
     };
 
     axiosPublic
@@ -93,8 +93,12 @@ const CreateProduct = () => {
                   {...register("brand")}
                   className=" w-full  px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 cursor-pointer"
                 >
+                  <option value="amazon">amazon</option>
                   <option value="nike">nike</option>
                   <option value="walton">walton</option>
+                  <option value="samsung">samsung</option>
+                  <option value="apple">apple</option>
+                  <option value="apple">otobi</option>
                 </select>
               </div>
               <div>
@@ -105,6 +109,9 @@ const CreateProduct = () => {
                 >
                   <option value="electronics">Electronics</option>
                   <option value="clothing">Clothing</option>
+                  <option value="Kitchen Appliances">Kitchen Appliances</option>
+                  <option value="Furniture">Furniture</option>
+                  <option value="Health & Fitness">Health & Fitness</option>
                 </select>
               </div>
             </div>
