@@ -11,7 +11,7 @@ const Home = () => {
   const [data, setData] = useState([]);
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemPerPage, setItemPerPage] = useState(5);
+  const [itemPerPage, setItemPerPage] = useState(8);
   const numberPages = Math.ceil(productData?.length / itemPerPage);
   const totalbtn = [...Array(numberPages).keys()];
 
@@ -35,14 +35,14 @@ const Home = () => {
 
   useEffect(() => {
     axiosPublic
-      .get("/products?size=8")
+      .get(`/products?page=${currentPage}&size=${itemPerPage}`)
       .then((res) => {
         setData(res.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [currentPage,itemPerPage]);
 
   const handleSearchData = (e) => {
     e.preventDefault();
