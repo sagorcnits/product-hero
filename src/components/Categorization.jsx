@@ -22,6 +22,7 @@ const Categorization = ({ handleCategory, handleSorting }) => {
                   {...register("brand")}
                   className="border p-2 rounded-md cursor-pointer w-full"
                 >
+                  <option value="all">all</option>
                   <option value="nike">nike</option>
                   <option value="walton">walton</option>
                   <option value="samsung">samsung</option>
@@ -36,6 +37,7 @@ const Categorization = ({ handleCategory, handleSorting }) => {
                   {...register("category")}
                   className="border p-2 rounded-md cursor-pointer w-full"
                 >
+                  <option value="all">all</option>
                   <option value="electronics">Electronics</option>
                   <option value="clothing">Clothing</option>
                   <option value="Kitchen Appliances">Kitchen Appliances</option>
@@ -49,6 +51,7 @@ const Categorization = ({ handleCategory, handleSorting }) => {
                   {...register("price")}
                   className="border p-2 rounded-md cursor-pointer w-full"
                 >
+                  <option value="all">all</option>
                   <option value="1-100">$1-$100</option>
                   <option value="100-300">$100-$300</option>
                   <option value="300-600">$300-$600</option>
@@ -75,6 +78,7 @@ const Categorization = ({ handleCategory, handleSorting }) => {
               onChange={(e) => handleSorting(e.target.value)}
               className="cursor-pointer p-2"
             >
+              <option value="Price Low to High">all</option>
               <option value="Price Low to High">Price Low to High</option>
               <option value="Price High to Low">Price High to Low</option>
               <option value="Newest first">Newest first</option>
