@@ -8,6 +8,13 @@ const firebaseConfig = {
   messagingSenderId: "666330787297",
   appId: "1:666330787297:web:6f2aeb4051b52995be36a0",
   measurementId: "G-D24RLX04XV",
+  // apiKey: import.meta.env.APIKEY,
+  // authDomain: import.meta.env.AUTHDOMAIN,
+  // projectId: import.meta.env.PROJECTID,
+  // storageBucket: import.meta.env.STORAGEBUCKET,
+  // messagingSenderId: import.meta.env.MESSAGINGSENDERID,
+  // appId: import.meta.env.APPID,
+  // measurementId: import.meta.env.MEASUREMENTID,
 };
 
 // Initialize Firebase
