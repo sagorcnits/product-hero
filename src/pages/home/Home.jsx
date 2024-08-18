@@ -61,7 +61,8 @@ const Home = () => {
     const brand = data.brand;
     const category = data.category;
     const price = data.price;
-    console.log(brand, category, price);
+    // const maximumPrice = data.maximum;
+    // console.log(brand, category, price);
     axiosPublic
       .get(`/products?brand=${brand}&category=${category}&price=${price}`)
       .then((res) => {

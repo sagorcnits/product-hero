@@ -14,15 +14,14 @@ const Categorization = ({ handleCategory, handleSorting }) => {
       <h1 className="font-semibold">Choose your Category</h1>
       <div className="flex flex-col md:flex-row justify-between items-center  mt-4">
         <div className="w-[50%] shadow border flex flex-col md:flex-row justify-between items-center gap-2 md:gap-6 rounded-md p-3">
-          <form >
-            <div className="grid grid-cols-2 md:grid-cols-4 items-center gap-2 *:cursor-pointer">
+          <form>
+            <div className="grid grid-cols-2 md:grid-cols-4  items-center gap-2 *:cursor-pointer">
               <div>
                 <label className="font-semibold"> Brand : </label>
                 <select
                   {...register("brand")}
                   className="border p-2 rounded-md cursor-pointer w-full"
                 >
-                  
                   <option value="nike">nike</option>
                   <option value="walton">walton</option>
                   <option value="samsung">samsung</option>
@@ -44,13 +43,12 @@ const Categorization = ({ handleCategory, handleSorting }) => {
                   <option value="Health & Fitness">Health & Fitness</option>
                 </select>
               </div>
-              <div>
-                <label className="font-semibold"> Price : </label>
+              {/* <div>
+                <label className="font-semibold">Min Price : </label>
                 <select
                   {...register("price")}
                   className="border p-2 rounded-md cursor-pointer w-full"
                 >
-                  
                   <option value="1-100">$1-$100</option>
                   <option value="100-300">$100-$300</option>
                   <option value="300-600">$300-$600</option>
@@ -60,10 +58,40 @@ const Categorization = ({ handleCategory, handleSorting }) => {
                   <option value="2000-5000">$2000-$5000</option>
                   <option value="5000-10000">$5000-$10000</option>
                 </select>
+                <input
+                  {...register("minimum")}
+                  className="border p-2 rounded-md  w-full"
+                  type="number"
+                  placeholder="min price"
+                  name="minimum"
+                />
+              </div> */}
+              <div>
+                <label className="font-semibold">Price : </label>
+                <select
+                  {...register("price")}
+                  className="border p-2 rounded-md cursor-pointer w-full"
+                >
+                  <option value="1-100">$1-$100</option>
+                  <option value="100-300">$100-$300</option>
+                  <option value="300-600">$300-$600</option>
+                  <option value="600-1000">$600-$1000</option>
+                  <option value="1000-1500">$1000-$1500</option>
+                  <option value="1500-2000">$1500-$2000</option>
+                  <option value="2000-5000">$2000-$5000</option>
+                  <option value="5000-10000">$5000-$10000</option>
+                </select>
+                {/* <input
+                  {...register("maximum")}
+                  className="border p-2 rounded-md  w-full"
+                  type="number"
+                  placeholder="max price"
+                  name="maximum"
+                /> */}
               </div>
               <button
                 onClick={handleSubmit(handleCategory)}
-                className="button py-[9px] px-3 w-full mt-5"
+                className="button py-[9px] px-3 w-full mt-5 "
               >
                 Find Now
               </button>
@@ -77,7 +105,7 @@ const Categorization = ({ handleCategory, handleSorting }) => {
               onChange={(e) => handleSorting(e.target.value)}
               className="cursor-pointer p-2"
             >
-          
+              <option value="all">all</option>
               <option value="Price Low to High">Price Low to High</option>
               <option value="Price High to Low">Price High to Low</option>
               <option value="Newest first">Newest first</option>
